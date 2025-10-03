@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
+  const input = document.querySelector("#message-input");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    const input = document.querySelector("input");
 
     console.log(input.value);
   });

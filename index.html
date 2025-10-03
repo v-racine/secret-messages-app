@@ -7,7 +7,10 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      integrity="sha256-OweaP/Ic6rsV+lysfyS4h+LM6sRwuO3euTYfr6M124g="
+      crossorigin="anonymous"
     />
+
     <title>Secret Messages</title>
   </head>
 
@@ -16,8 +19,8 @@
       <div class="col s8 offset-s2">
         <div class="card-panel">
           <form>
-            <label>Enter a Secret Message</label>
-            <input />
+            <label for="message-input">Enter a Secret Message</label>
+            <input id="message-input" />
             <button class="btn">Create</button>
           </form>
         </div>
