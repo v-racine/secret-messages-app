@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     messageDiv.classList.add("hide");
     linkDiv.classList.remove("hide");
 
-    const encrypted = btoa(message.value);
-    link.value = `${window.location}#${encrypted}`;
+    const encoded = btoa(unescape(encodeURIComponent(message.value)));
+    link.value = `${window.location}#${encoded}`;
     link.select();
   });
 });
