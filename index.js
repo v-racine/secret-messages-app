@@ -1,10 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
-  const input = document.querySelector("#message-input");
+  const messageDiv = document.querySelector("#message");
+  const linkDiv = document.querySelector("#link");
+  const message = document.querySelector("#message-input");
+  const link = document.querySelector("#link-input");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    console.log(input.value);
+    messageDiv.classList.add("hide");
+    linkDiv.classList.remove("hide");
+
+    const encrypted = btoa(message.value);
+    link.value = `${window.location}#${encrypted}`;
+    link.select();
   });
 });
