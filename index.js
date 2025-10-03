@@ -5,15 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const showDiv = document.querySelector("#message-show");
   const message = document.querySelector("#message-input");
   const link = document.querySelector("#link-input");
-  const h1 = document.querySelector("h1");
+  const h1 = document.querySelector("#message-show h1");
 
   const { hash } = window.location;
-  const secretMessage = atob(hash.replace("#", ""));
+  const messageHash = hash.replace("#", "");
 
-  if (secretMessage) {
+  if (messageHash) {
     messageDiv.classList.add("hide");
     showDiv.classList.remove("hide");
-    h1.textContent = secretMessage;
+    try {
+      const decoded = atob(messageHash);
+      const secretMessage = decodeURIComponent(escape(decoded));
+      h1.textContent = secretMessage;
+    } catch (err) {
+      h1.textContent = "Invalid secret message";
+      console.error(err);
+    }
   }
 
   form.addEventListener("submit", (e) => {
